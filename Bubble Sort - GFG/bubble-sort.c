@@ -1,0 +1,71 @@
+//{ Driver Code Starts
+//Initial Template for C
+
+// C program for implementation of Bubble sort
+
+#include <stdio.h>
+ 
+void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
+}
+
+
+// } Driver Code Ends
+//User function Template for C
+
+
+//Function to sort the array using bubble sort algorithm.
+void bubbleSort(int a[], int n)
+{
+    // Your code here    
+    for(int i =1; i<n; i++){
+        int flag = 0;
+        for(int j = 0; j<n-i; j++){
+            if( a[j] > a[j+1] ){
+               int t = a[j];
+               a[j] = a[j+1];
+               a[j+1] = t;
+               flag = 1;
+            }
+        }
+        if(flag == 0){
+            break;
+        }
+    }
+}
+
+//{ Driver Code Starts.
+ 
+/* Function to print an array */
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+ 
+ 
+// Driver program to test above functions
+int main()
+{
+    int arr[1000],n,T,i;
+  
+    scanf("%d",&T);
+    
+    while(T--){
+        
+    scanf("%d",&n);
+    
+    for(i=0;i<n;i++)
+      scanf("%d",&arr[i]);
+      
+    bubbleSort(arr, n);
+    printArray(arr, n);
+    }
+    return 0;;
+}
+// } Driver Code Ends
