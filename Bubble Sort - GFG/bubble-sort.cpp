@@ -22,21 +22,25 @@ class Solution
 {
     public:
     //Function to sort the array using bubble sort algorithm.
+    void bubblesort(int a[], int n){
+       
+        if(n==1 || n==0){
+            return;
+        }
+        
+        for(int i =0; i<n-1; i++){
+            if(a[i] > a[i+1]){
+                swap(a[i], a[i+1]);
+            }
+        }
+        bubblesort(a, n-1);
+        
+        
+    }
     void bubbleSort(int a[], int n)
     {
         // Your code here  
-         for(int i =1; i<n; i++){
-        int flag = 0;
-        for(int j = 0; j<n-i; j++){
-            if( a[j] > a[j+1]){
-                swap(a[j], a[j+1]);
-                flag = 1;
-            }
-        }
-        if(flag == 0)
-        break;
-    }
-        
+        bubblesort(a, n);
     }
 };
 
