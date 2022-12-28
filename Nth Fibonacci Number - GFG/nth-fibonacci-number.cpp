@@ -10,12 +10,14 @@ class Solution {
     long long int nthFibonacci(long long int n){
         // code here
         vector<int> dp(n+1);
-        dp[1] = 1;
-        dp[0] = 0;
+        int prev1 = 1;
+        int prev2 = 0;
         for(int i = 2; i<=n; i++){
-            dp[i] = dp[i-1]%1000000007+ dp[i-2]%1000000007;
+           int curr = (prev1%1000000007 + prev2%1000000007)%1000000007;
+           prev2 = prev1%1000000007;
+           prev1 = curr%1000000007;
         }
-        return dp[n]%1000000007;
+        return prev1%1000000007;
     }
 };
 
